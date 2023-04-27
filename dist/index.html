@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="../JS/main.js" type="module" defer></script>
+  </head>
+  <body>
+    <nav>
+      <h1>PharmaBills</h1>
+
+      <div class="nav_sidebar">
+        <div class="bill">
+          <span id="item">0</span>
+
+          <input type="checkbox" id="intt" />
+          <label for="intt">
+            <i class="fa-sharp fa-solid fa-peso-sign"></i
+          ></label>
+          <div class="sale">
+            <div class="in">
+              <p>inventory</p>
+              <p id="count_item">0</p>
+            </div>
+            <div class="total">
+              <p>total price</p>
+              <p id="price">0.00 ₱</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="srch_bar">
+      <input type="search" id="srch" />
+      <!--  <img src="../components/srch.svg" alt="" /> -->
+      <label for="srch"><i class="fa-solid fa-magnifying-glass"></i></label>
+    </div>
+
+    <div class="main">
+      <div class="anchor">
+        <button id="all" class="anc active">all</button>
+        <button id="sick" class="anc">sick</button>
+        <button id="cold" class="anc">cold</button>
+        <button id="cough" class="anc">cough</button>
+      </div>
+
+      <div class="contain">
+        <div id="one">
+          <ul id="lagnat"></ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
