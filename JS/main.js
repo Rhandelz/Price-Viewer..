@@ -6,19 +6,34 @@ const ul = document.getElementById("lagnat");
 
 data.map((data) => {
   ul.innerHTML += `
-      <li value=${data.price}>
-      <div>
-      </div>
-      <h5>${data.name}</h5>
-      <p>${data.discripion}</p>
-      </li>
+  <li>
+  <div class="label">
+    <span class="material-symbols-outlined"> pill </span>
+    <h5>${data.name}</h5>
+  </div>
+  <div class="img_div">
+    <img src="../bg_icon/${data.url}" alt="" />
+  </div>
+
+  <div class="info">
+    <span class="material-symbols-outlined"> prescriptions </span>
+    <h5 class="about">About</h5>
+  </div>
+  <div class="items">
+    <span>${data.type}</span>
+    <span>${data.isKid ? "Kids" : "Adult"}</span>
+    <span>${data.price}.0₱</span>
+  </div>
+</li>
       `;
 });
 
 input.addEventListener("input", (e) => {
+  console.log(ul.children[1].children[0].children[1].textContent === "DayQuil");
+
   for (let i = 0; i < ul.children.length; i++) {
     if (
-      ul.children[i].children[1].textContent
+      ul.children[i].children[0].children[1].textContent
         .toLowerCase()
         .includes(input.value.toLowerCase())
     ) {
@@ -47,12 +62,25 @@ btn_all.addEventListener("click", () => {
   ul.innerHTML = "";
   data.map((data) => {
     ul.innerHTML += `
-            <li value=${data.price}>
-            <div>
-            </div>
-            <h5>${data.name}</h5>
-            <p>${data.discripion}</p>
-            </li>
+    <li>
+    <div class="label">
+      <span class="material-symbols-outlined"> pill </span>
+      <h5>${data.name}</h5>
+    </div>
+    <div class="img_div">
+      <img src="../bg_icon/${data.url}" alt="" />
+    </div>
+
+    <div class="info">
+      <span class="material-symbols-outlined"> prescriptions </span>
+      <h5 class="about">About</h5>
+    </div>
+    <div class="items">
+      <span>${data.type}</span>
+      <span>${data.isKid ? "Kids" : "Adult"}</span>
+      <span>${data.price}.0₱</span>
+    </div>
+  </li>
             `;
   });
 });
@@ -63,12 +91,25 @@ btn_sick.addEventListener("click", () => {
   data.map((data) => {
     if (data.type === "sick") {
       ul.innerHTML += `
-        <li value=${data.price}>
-        <div>
-        </div>
+      <li>
+      <div class="label">
+        <span class="material-symbols-outlined"> pill </span>
         <h5>${data.name}</h5>
-        <p>${data.discripion}</p>
-        </li>
+      </div>
+      <div class="img_div">
+        <img src="../bg_icon/${data.url}" alt="" />
+      </div>
+    
+      <div class="info">
+        <span class="material-symbols-outlined"> prescriptions </span>
+        <h5 class="about">About</h5>
+      </div>
+      <div class="items">
+        <span>${data.type}</span>
+        <span>${data.isKid ? "Kids" : "Adult"}</span>
+        <span>${data.price}.0₱</span>
+      </div>
+    </li>
         `;
     }
   });
@@ -79,12 +120,25 @@ btn_cold.addEventListener("click", () => {
   data.map((data) => {
     if (data.type === "cold") {
       ul.innerHTML += `
-          <li value=${data.price}>
-          <div>
-          </div>
-          <h5>${data.name}</h5>
-          <p>${data.discripion}</p>
-          </li>
+      <li>
+      <div class="label">
+        <span class="material-symbols-outlined"> pill </span>
+        <h5>${data.name}</h5>
+      </div>
+      <div class="img_div">
+        <img src="../bg_icon/${data.url}" alt="" />
+      </div>
+    
+      <div class="info">
+        <span class="material-symbols-outlined"> prescriptions </span>
+        <h5 class="about">About</h5>
+      </div>
+      <div class="items">
+        <span>${data.type}</span>
+        <span>${data.isKid ? "Kids" : "Adult"}</span>
+        <span>${data.price}.0₱</span>
+      </div>
+    </li>
           `;
     }
   });
@@ -95,12 +149,25 @@ btn_cough.addEventListener("click", () => {
   data.map((data) => {
     if (data.type === "cough") {
       ul.innerHTML += `
-          <li value=${data.price}>
-          <div>
-          </div>
-          <h5>${data.name}</h5>
-          <p>${data.discripion}</p>
-          </li>
+      <li>
+      <div class="label">
+        <span class="material-symbols-outlined"> pill </span>
+        <h5>${data.name}</h5>
+      </div>
+      <div class="img_div">
+        <img src="../bg_icon/${data.url}" alt="" />
+      </div>
+    
+      <div class="info">
+        <span class="material-symbols-outlined"> prescriptions </span>
+        <h5 class="about">About</h5>
+      </div>
+      <div class="items">
+        <span>${data.type}</span>
+        <span>${data.isKid ? "Kids" : "Adult"}</span>
+        <span>${data.price}.0₱</span>
+      </div>
+    </li>
           `;
     }
   });

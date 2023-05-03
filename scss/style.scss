@@ -1,12 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto:wght@500&display=swap");
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   transition: 0.25s;
+  font-family: "Poppins", sans-serif;
+  font-family: 700;
 }
 
 body {
   height: 100vh;
+  background: #f0f2f5;
 
   &::-webkit-scrollbar {
     display: none;
@@ -15,8 +19,9 @@ body {
     position: relative;
     left: 0;
     right: 0;
-    background-color: #4b4a8e;
-    height: 95px;
+    height: 99px;
+    background: #4027d7;
+    border-radius: 20px;
     margin: 20px 10px;
     border-radius: 20px;
     display: flex;
@@ -27,12 +32,10 @@ body {
 
     h1 {
       font-weight: bold;
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
       color: transparent;
       margin-left: 30px;
       letter-spacing: 1px;
-      background: linear-gradient(rgb(149, 149, 149), white);
+      background: white;
       background-clip: text;
       -webkit-background-clip: text;
       -moz-background-clip: tex;
@@ -90,8 +93,6 @@ body {
         .in {
           display: flex;
           min-width: 70px;
-          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-            sans-serif;
           gap: 50px;
           font-weight: bold;
           margin-bottom: 30px;
@@ -99,8 +100,6 @@ body {
 
         .total {
           text-align: center;
-          font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-            sans-serif;
           font-weight: bold;
           display: flex;
           justify-content: center;
@@ -132,7 +131,7 @@ body {
     margin-bottom: 100px;
 
     input {
-      height: 30px;
+      height: 38px;
       width: 80%;
       border: 1px solid #4e4d8b;
       border-radius: 10px;
@@ -146,7 +145,7 @@ body {
 
     label {
       i {
-        font-size: 1.5rem;
+        font-size: 2.2rem;
         margin-left: 10px;
         color: #4b4a8e;
         font-weight: bold;
@@ -164,28 +163,55 @@ body {
       display: flex;
       position: absolute;
       top: -10%;
-      left: 50px;
+      left: 20px;
+      height: 32px;
       z-index: 2;
       gap: 10px;
 
-      .anc {
-        text-decoration: none;
-        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-          sans-serif;
-        font-size: 1rem;
-        color: #2d2bcd;
-        border: none;
-        background-color: transparent;
-        padding: 2px 7px;
-        cursor: pointer;
+      #filter {
+        position: absolute;
+        transform: translateX(-1000px);
+
+        &:checked ~ label ~ div {
+          width: 200px;
+        }
       }
 
-      .active {
-        color: white;
-        background-color: #4b4a8e;
-        text-decoration: none;
-        border-radius: 5px;
-        padding: 0px 5px;
+      label {
+        height: 100%;
+        cursor: pointer;
+        span {
+          color: #131a57;
+          font-size: 2rem;
+        }
+      }
+
+      .filter_value {
+        width: 0px;
+        transition: 0.5s;
+        overflow: hidden;
+        .anc {
+          text-decoration: none;
+          padding: 10px;
+          font-size: 1rem;
+          color: #2d2bcd;
+          border: none;
+          background-color: transparent;
+          padding: 2px 7px;
+          cursor: pointer;
+
+          span {
+            font-size: 2rem;
+            pointer-events: none;
+          }
+        }
+
+        .active {
+          color: white;
+          background-color: #4b4a8e;
+          text-decoration: none;
+          border-radius: 5px;
+        }
       }
     }
 
@@ -196,64 +222,104 @@ body {
       overflow-x: hidden;
       scroll-behavior: smooth;
 
-      div {
+      #one {
         height: 100%;
         min-width: 100vw;
-
-        &:nth-child(1) {
-        }
-        &:nth-child(2) {
-        }
-        &:nth-child(3) {
-          background-color: rgb(0, 51, 255);
-        }
-        &:nth-child(4) {
-          background: green;
-        }
 
         ul {
           display: flex;
           flex: auto auto;
           flex-wrap: wrap;
-          gap: 40px;
+          column-gap: 20px;
+          row-gap: 30px;
           padding: 20px 0px;
           justify-content: center;
 
           li {
-            width: 40%;
-            border-radius: 20px;
-            height: 200px;
-            background-color: rgba(213, 213, 213, 0.707);
+            width: 45%;
+            border-radius: 10px;
+            height: 250px;
+            background-color: white;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
-            justify-content: space-evenly;
+            /*  overflow: hidden; */
+            justify-content: center;
             padding: 10px;
             position: relative;
             transition: 0.2s;
-            box-shadow: 2px 1px 4px gray;
+            min-width: 140px;
+            min-height: 209px;
+            border: 1px solid #c6c7c8;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 
-            div {
-              position: relative;
-              left: 0;
-              right: 0;
-              pointer-events: none;
-              margin-bottom: 20px;
+            .label {
+              position: absolute;
+              top: 15px;
+              display: flex;
+              gap: 10px;
+              left: 10px;
+              padding: 2px 5px;
+              border-radius: 10px;
+              background-color: #770cff;
+              justify-content: center;
+              align-items: center;
+              font-size: 10px;
+
+              h5 {
+                color: white;
+                font-size: 12px;
+              }
+
+              span {
+                color: white;
+                font-size: 15px;
+              }
             }
 
-            h5 {
-              font-size: 1rem;
-              margin-bottom: 20px;
-              font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-                sans-serif;
-              color: rgb(121, 121, 121);
+            .img_div {
+              height: 100px;
+              margin-top: 20px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              overflow: hidden;
+
+              img {
+                height: 100%;
+              }
             }
 
-            p {
-              font-size: 0.8rem;
-              font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-                sans-serif;
-              color: gray;
+            .info {
+              background-color: #4019da;
+              display: flex;
+              width: 70px;
+              height: 22px;
+              justify-content: center;
+              gap: 10px;
+              align-items: center;
+              border-radius: 10px;
+              color: white;
+              margin-bottom: 10px;
+              margin-top: 10px;
+              span {
+                font-size: 15px;
+              }
+              h5 {
+                font-size: 12px;
+              }
+            }
+
+            .items {
+              display: flex;
+              flex-direction: column;
+              overflow: hidden;
+
+              span {
+                font-size: 10px;
+                font-family: "Poppins", sans-serif;
+                font-weight: bold;
+                color: gray;
+              }
             }
           }
         }
