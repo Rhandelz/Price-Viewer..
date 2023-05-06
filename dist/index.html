@@ -21,34 +21,55 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-
-    <script src="../JS/main.js" type="module" defer></script>
   </head>
   <body>
     <nav>
-      <h1>PharmaBills</h1>
+      <h1>Pharma<b>B</b>ills</h1>
 
       <div class="nav_sidebar">
         <div class="bill">
           <span id="item">0</span>
 
           <input type="checkbox" id="intt" />
-          <label for="intt">
-            <i class="fa-sharp fa-light fa-circle-info"></i
-          ></label>
-          <div class="sale">
-            <div class="in">
-              <p>inventory</p>
-              <p id="count_item">0</p>
-            </div>
-            <div class="total">
-              <p>total price</p>
-              <p id="price">0.00 ₱</p>
-            </div>
-          </div>
+          <label for="intt"> i</label>
         </div>
       </div>
     </nav>
+
+    <div class="modal">
+      <div class="pic">
+        <h2>item</h2>
+        <ul id="sold_list"></ul>
+        <h2>total</h2>
+        <h5 id="total"></h5>
+      </div>
+
+      <a id="download_btn" download>download </a>
+    </div>
+
+    <div class="inventory" id="inventory">
+      <div class="left">
+        <span class="item">
+          <span class="material-symbols-outlined"> inventory_2 </span>
+          <h1>item(s)</h1>
+        </span>
+        <h5 id="count">0 x</h5>
+        <span class="item">
+          <span class="material-symbols-outlined"> point_of_sale </span>
+          <h1>total</h1>
+        </span>
+        <h5 id="total_price">0.0 ₱</h5>
+      </div>
+
+      <div class="rigth">
+        <button id="btn_print">DONE</button>
+        <button id="undo">
+          <span> undo </span>
+        </button>
+      </div>
+
+      <h1 class="ekis">X</h1>
+    </div>
 
     <div class="srch_bar">
       <input type="search" id="srch" />
@@ -105,5 +126,13 @@
         </div>
       </div>
     </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"
+      integrity="sha512-7tWCgq9tTYS/QkGVyKrtLpqAoMV9XIUxoou+sPUypsaZx56cYR/qio84fPK9EvJJtKvJEwt7vkn6je5UVzGevw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="../JS/main.js"></script>
   </body>
 </html>
