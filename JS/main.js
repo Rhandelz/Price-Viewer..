@@ -238,6 +238,7 @@ btn_undo.addEventListener("click", () => {
     sum -= undo_arr[undo_arr.length - 1];
     price.textContent = `${sum}.0 ₱`;
     undo_arr.pop(undo_arr[undo_arr.length - 1]);
+    nameOfMed.pop(nameOfMed.length - 1);
   }
 });
 
@@ -254,13 +255,21 @@ let tots = document.getElementById("total");
 
 let dwnld = document.getElementById("download_btn");
 
-done.addEventListener("click", () => {
+done.addEventListener("click", (e) => {
+  e.stopPropagation();
+
   modal.style.display = "flex";
 
   tots.innerHTML = sum + "₱";
 
+  ObjPlace = {};
+
   for (let i = 0; i < nameOfMed.length; i++) {
     const val = nameOfMed[i];
+
+    console.log("spin" + i);
+
+    console.log(val);
     if (ObjPlace[val]) {
       ObjPlace[val]++;
     } else {
@@ -273,7 +282,7 @@ done.addEventListener("click", () => {
   for (const key in ObjPlace) {
     place.push(`${key}: ${ObjPlace[key]}`);
   }
-
+  console.log(place);
   sold.innerHTML = "";
 
   place.forEach((d) => {
@@ -284,12 +293,12 @@ done.addEventListener("click", () => {
 modal.addEventListener("click", (e) => {
   e.stopPropagation();
 
-  if (e.target.className !== "pic") {
-    /* modal.style.display = "none"; */
+  console.log(e.target.id);
+
+  if (e.target.className !== "pic" && e.target.id !== "download_btn") {
+    modal.style.display = "none";
   }
 });
-
-let dwd = document.getElementById("download_btn");
 
 dwnld.addEventListener("click", () => {
   htmlToImage
@@ -299,7 +308,7 @@ dwnld.addEventListener("click", () => {
       img.src = dataUrl;
       img.setAttribute("id", "img");
       modal.appendChild(img);
-      dwd.href = dataUrl;
+      dwnld.href = dataUrl;
     })
     .catch(function (error) {
       console.error("oops, something went wrong!", error);
